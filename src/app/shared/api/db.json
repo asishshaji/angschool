@@ -1,0 +1,37 @@
+{
+  "institute": [],
+  "courses": [
+    {
+      "courseName": "ECON 101",
+      "id": 2
+    }
+  ],
+  "enrollment": [
+    {
+      "id": 1,
+      "fullname": "Asish Shaji Thomas",
+      "mobile": "9400376256",
+      "email": "asishshajithomas@gmail.com",
+      "qualification": "HSC",
+      "passingYear": "2020",
+      "collegeName": "NSSCE",
+      "city": "Kollam",
+      "workExp": "0",
+      "course": "ASD",
+      "wdyh": "banner",
+      "batchType": "weekday"
+    }
+  ],
+  "login": [
+    {
+      "id": 23,
+      "uid": "admin",
+      "upass": "admin"
+    },
+    {
+      "id": 223,
+      "uid": "user",
+      "upass": "user"
+    }
+  ]
+}

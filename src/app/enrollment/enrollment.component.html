@@ -1,0 +1,248 @@
+<div class="container mt-4">
+
+  <button type="back" class="btn btn-outline-primary mb-3"
+    routerLink="/dashboard">
+    <i class="fa fa-arrow-left"></i>
+    Back
+  </button>
+  <form [formGroup]="form" (ngSubmit)="saveData()">
+    <div class="form-group">
+      <input
+        type="text"
+        name="fullname"
+        formControlName="fullname"
+        placeholder="Enter fullname here"
+        ngModel
+        class="form-control"
+        pattern="[a-zA-Z ]*"
+        required
+        />
+      <div
+        class="mt-3"
+        *ngIf="form.get('fullname').invalid && form.get('fullname').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('fullname').errors.required">
+          Name is required.
+        </div>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('fullname').errors.pattern">
+          Name should contain only characters.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        name="mobile"
+        placeholder="Enter mobile number here"
+        ngModel
+        formControlName="mobile"
+        class="form-control"
+        />
+      <div
+        class="mt-3"
+        *ngIf="form.get('mobile').invalid && form.get('mobile').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('mobile').errors.required">
+          Mobile is required.
+        </div>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('mobile').errors.pattern">
+          Enter valid mobile number
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        name="email"
+        placeholder="Enter email here"
+        ngModel
+        class="form-control"
+        formControlName="email"
+        />
+
+      <div
+        class="mt-3"
+        *ngIf="form.get('email').invalid && form.get('email').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('email').errors.required">
+          Email is required.
+        </div>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('email').errors.pattern">
+          Enter valid email number
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <select class="custom-select" formControlName="qualification">
+        <option value="" disabled>Choose your qualification</option>
+        <option *ngFor="let q of Qualifications">{{ q }}</option>
+      </select>
+      <div
+        class="mt-3"
+        *ngIf="form.get('qualification').hasError('required') &&
+        form.get('qualification').touched">
+        <div
+          class="alert alert-danger">
+          Qualification is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="passingYear"
+        placeholder="Enter passing year"
+        formControlName="passingYear"
+        ngModel
+        class="form-control"
+        />
+      <div
+        class="mt-3"
+        *ngIf="form.get('passingYear').invalid &&
+        form.get('passingYear').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('passingYear').errors.required">
+          Passing year is required.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="collegeName"
+        placeholder="Enter college name"
+        formControlName="collegeName"
+        ngModel
+        class="form-control"
+        />
+      <div
+        class="mt-3"
+        *ngIf="form.get('collegeName').invalid &&
+        form.get('collegeName').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('collegeName').errors.required">
+          College is required.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="city"
+        placeholder="Enter city name"
+        formControlName="city"
+        ngModel
+        class="form-control"
+        />
+      <div
+        class="mt-3"
+        *ngIf="form.get('city').invalid &&
+        form.get('city').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('city').errors.required">
+          City is required.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="workExp"
+        placeholder="Enter Work experience"
+        formControlName="workExp"
+        ngModel
+        class="form-control"
+        />
+      <div
+        class="mt-3"
+        *ngIf="form.get('workExp').invalid &&
+        form.get('workExp').touched">
+        <div
+          class="alert alert-danger"
+          *ngIf="form.get('workExp').errors.required">
+          Work experience is required.
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <select class="custom-select" formControlName="course">
+        <option value="" disabled>Choose your course</option>
+        <option *ngFor="let c of Courses">{{ c }}</option>
+      </select>
+
+      <div
+        class="mt-3"
+        *ngIf="form.get('course').hasError('required') &&
+        form.get('course').touched">
+        <div
+          class="alert alert-danger">
+          Course is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <select class="custom-select" formControlName="wdyh">
+        <option value="" disabled>Where did you hear</option>
+        <option value="internet">Internet</option>
+        <option value="banner">Banner</option>
+        <option value="newspaper">Newspaper</option>
+      </select>
+      <div
+        class="mt-3"
+        *ngIf="form.get('wdyh').hasError('required') &&
+        form.get('wdyh').touched">
+        <div
+          class="alert alert-danger">
+          is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <div class="row p-4">
+        <input type="radio" id="weekend" name="batchType" value="weekend"
+          formControlName="batchType">
+        <br>
+        <label for="male">Weekend</label><br>
+        <input type="radio" id="weekday" name="batchType" value="weekday"
+          formControlName="batchType">
+        <br>
+
+        <label for="female">Weekday</label><br>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </form>
+
+
+</div>

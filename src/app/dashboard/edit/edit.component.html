@@ -1,0 +1,117 @@
+<form [formGroup]="editForm" (ngSubmit)="editData()">
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="fullname"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="mobile"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="passingYear"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="city"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="wdyh"
+      class="form-control"
+      />
+  </div>
+
+
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="collegeName"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      name="workExp"
+      formControlName="workExp"
+      class="form-control"
+      />
+  </div>
+
+  <div class="form-group">
+    <select class="custom-select" formControlName="qualification">
+      <option value="" disabled>Choose your qualification</option>
+      <option *ngFor="let q of Qualifications">{{ q }}</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <select class="custom-select" formControlName="course">
+      <option value="" disabled>Choose your course</option>
+      <option *ngFor="let c of Courses">{{ c }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="custom-select" formControlName="wdyh">
+      <option value="" disabled>Where did you hear</option>
+      <option value="internet">Internet</option>
+      <option value="banner">Banner</option>
+      <option value="newspaper">Newspaper</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+
+    {{stu.batchType}}
+    <div class="row p-4">
+      <input type="radio" id="weekend"
+        name="batchType"
+        value="weekend"
+
+        formControlName="batchType">
+      <br>
+      <label for="male">Weekend</label><br>
+      <input type="radio" id="weekday" name="batchType"
+        value="weekday"
+
+        formControlName="batchType">
+      <br>
+
+      <label for="female">Weekday</label><br>
+    </div>
+
+  </div>
+
+  <button class="btn btn-primary">Update</button>
+
+</form>
