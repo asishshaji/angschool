@@ -13,6 +13,10 @@
     {
       "courseName": "ECON 101",
       "id": 2
+    },
+    {
+      "courseName": "ME202",
+      "id": 3
     }
   ],
   "enrollment": [
