@@ -1,5 +1,14 @@
 {
-  "institute": [],
+  "institute": [
+    {
+      "lhBranch": "Kollam1",
+      "id": 1
+    },
+    {
+      "lhBranch": "EKM",
+      "id": 2
+    }
+  ],
   "courses": [
     {
       "courseName": "ECON 101",

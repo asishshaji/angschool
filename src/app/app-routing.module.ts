@@ -32,6 +32,14 @@ const routes: Routes = [
       import('./courses/courses.module').then((m) => m.CoursesModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'school',
+    loadChildren: () =>
+      import('./angularschool/angularschool.module').then(
+        (m) => m.AngularschoolModule
+      ),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

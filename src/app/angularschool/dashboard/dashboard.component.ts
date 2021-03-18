@@ -1,25 +1,25 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
-import { CoursesService } from 'src/app/shared/services/courses.service';
+import { SchoolService } from 'src/app/shared/services/school.service';
 
 @Component({
-  selector: 'app-courses',
-  templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
 })
-export class CoursesComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   constructor(
-    private _courseService: CoursesService,
     private _modalService: BsModalService,
-    private _router: Router
+    private _router: Router,
+    private _service: SchoolService
   ) {}
 
-  Courses: any = [];
+  Schools: any = [];
   p: number = 1;
   term = '';
 
-  order: string = 'name';
+  order: string = 'id';
   orderBool: boolean = false;
 
   modalRef: any;
@@ -34,14 +34,14 @@ export class CoursesComponent implements OnInit {
   }
 
   fetchData() {
-    this.Courses = this._courseService.getCourses().subscribe((res) => {
-      this.Courses = res;
+    this.Schools = this._service.getSchools().subscribe((res) => {
+      this.Schools = res;
     });
   }
 
   deleteRecord(id: any) {
     if (confirm('Are you sure?')) {
-      this._courseService.deleteRecord(id).subscribe(() => {
+      this._service.deleteRecord(id).subscribe(() => {
         this.fetchData();
       });
     }

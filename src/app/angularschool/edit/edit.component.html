@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <button type="back" class="btn btn-outline-primary mb-3"
+    routerLink="/school">
+    <i class="fa fa-arrow-left"></i>
+    Back
+  </button>
+
+
+  <form>
+    <div class="form-group">
+      <input type="text"
+        [(ngModel)]="school.lhBranch"
+        placeholder="Enter course name"
+        name="lhBranch"
+        class="form-control">
+    </div>
+
+    <button class="btn btn-primary" (click)="submitBranch()">Submit</button>
+  </form>
+
+
+</div>

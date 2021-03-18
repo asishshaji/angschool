@@ -1,0 +1,80 @@
+<div class="row mt-4">
+  <div class="col-sm-8">
+    <button type="submit" class="btn btn-primary mb-4"
+
+      routerLink="add">
+      <i class="fa fa-plus"></i>Add
+    </button>
+  </div>
+  <div class="col-sm-4">
+    <input type="text" class="p-2" placeholder="Search" [(ngModel)]="term">
+  </div>
+</div>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th (click)="changeOrder('id')">ID</th>
+      <th (click)="changeOrder('lhBranch')">Name</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of Schools| orderBy: order:orderBool | filter:term |
+      paginate: {
+      itemsPerPage: 2,
+      currentPage:
+      p}">
+      <td>
+        {{ e.id }}
+      </td>
+      <td>
+        {{ e.lhBranch }}
+      </td>
+      <td>
+      </td>
+
+      <td>
+        <button class="btn btn-success mr-2"
+          (click)="openModal(template)">
+          <i class="fa fa-eye"></i>
+        </button>
+        <button type="submit" class="btn btn-outline-success mr-2"
+          [routerLink]="['/school','edit',e.id]">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </button>
+
+        <button type="submit" class="btn btn-outline-danger"
+          (click)="deleteRecord(e.id)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </td>
+      <ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Course data</h4>
+          <button type="button" class="close pull-right" aria-label="Close"
+            (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table>
+            <thead>
+              <tr>
+                <td>Course id : </td>
+                <td>{{e.id}}</td>
+              </tr>
+              <tr>
+                <td>Course name : </td>
+                <td>{{e.courseName}}</td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls class="float-right mt-3" (pageChange)="p= $event"></pagination-controls>
